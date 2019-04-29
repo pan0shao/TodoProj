@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
