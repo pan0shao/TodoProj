@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo</title>
-</head>
-<body>
-    <H1>hello world</H1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<form>
+    <p>want to do:</p>
+    <input type="text" action="/add"  >
+    <button type="submit">Add</button>
+</form>
+
+<div>
+<h2>Todo list</h2>
+<table>
+    <thead>
+        <tr>
+            <td>TODO</td>
+            <td>TIME</td>
+            <td>STATUS</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for do in todos %}
+            <td>
+                <td>{{ do.content }} </td>
+                <td>
+                    {% if do.status %}
+                    做了
+                    {% else %}
+                    未做
+                    {% endif %}
+                </td>
+                <td> {{ do.time }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+{% endblock %}
