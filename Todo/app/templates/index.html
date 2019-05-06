@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<form>
-    <p>want to do:</p>
-    <input type="text" action="/add"  >
-    <button type="submit">Add</button>
+<form class="input-group" action="/add" method="post">
+        <input class="form-control" id="content" name="content" type="text" value="" >
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Add</button>
+    </span>
 </form>
 
 <div>
 <h2>Todo list</h2>
-<table>
+<table class="table">
     <thead>
         <tr>
             <td>TODO</td>
@@ -19,7 +20,7 @@
 
     <tbody>
         {% for do in todos %}
-            <td>
+            <tr>
                 <td>{{ do.content }} </td>
                 <td>
                     {% if do.status %}
