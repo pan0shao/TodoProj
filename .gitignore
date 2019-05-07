@@ -1,3 +1,4 @@
 Todo/.idea
 Todo/__pycache__
 Todo/app/__pycache__
+Todo/app/static/bootstrap.min.css
