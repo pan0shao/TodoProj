@@ -1,11 +1,17 @@
-from wtforms import Form,BooleanField , StringField, validators
+from wtforms import Form,BooleanField , \
+    StringField, validators,DateTimeField,TextAreaField,IntegerField,SubmitField
 
 class RegisterationForm(Form):
-    username = StringField('username', [validators.length(min=4,max=25)])
-    email = StringField('Email Address', [validators.length(min=6,max=35)])
-    accept_rules = BooleanField('I accecpt the site ruls',
-                                [validators.InputRequired()])
+    username = StringField( "username", [validators.length(min=4,max=25)])
+    email = StringField( 'Email Address', [validators.length(min=6,max=35)])
+    accept_rules = BooleanField('I accecpt the site ruls', [validators.InputRequired()])
+    submit = SubmitField(label="submit")
 
+class ProfileForm(Form):
+    birthday  = DateTimeField( label='Your Birthday', format='%m/%d/%y')
+    signature = TextAreaField(label='Forum Signature')
 
-
+class AdminProfileForm(ProfileForm):
+    username = StringField(label='Username', validators=[validators.Length(max=40)])
+    level    = IntegerField(label='User Level', validators=[validators.NumberRange(min=0, max=10)])
 

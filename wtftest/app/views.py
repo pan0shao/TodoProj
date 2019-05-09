@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template, request
-from app.models import RegisterationForm
+from app.models import RegisterationForm,ProfileForm
+
 
 
 @app.route('/')
@@ -10,5 +11,7 @@ def index():
 @app.route('/wtf')
 def tform():
     forms = RegisterationForm()
-    return render_template( "index.html" , form=forms)
+    if forms.validate_on_submit():
+        messege="success !!"
+    return render_template( "index.html" , form=forms, message=messege )
 
