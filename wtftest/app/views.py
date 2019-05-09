@@ -8,10 +8,12 @@ from app.models import RegisterationForm,ProfileForm
 def index():
     return render_template( "index.html" , site_name="ceshi")
 
-@app.route('/wtf')
+@app.route('/wtf',methods=['POST','GET'] )
 def tform():
-    forms = RegisterationForm()
-    if forms.validate_on_submit():
-        messege="success !!"
-    return render_template( "index.html" , form=forms, message=messege )
+    tforms = RegisterationForm()
+    form = request.form
+    unm = form['username']
+    if unm == 'a':
+        message = "success !!"
+    return render_template( "index.html" , forms=tforms, messages=message )
 

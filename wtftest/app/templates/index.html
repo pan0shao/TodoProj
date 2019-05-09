@@ -5,16 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        <p>panshaojun wtf-form</p>
-    </div>
-
-    <div>
-        {{ form.username.label }}: {{ form.username }} {{ form.submit }}
-    </div>
-    {% if not message %}
-        {{ message }}
-    {% endif %}
+    <form action="/wtf" method="post">
+        {{ forms.csrf_token}}
+        <div>
+            {{ forms.username.label }}: {{ forms.username }} {{ forms.submit }}
+            {{ messages }}
+        </div>
+    </form>
 
 
 </body>
