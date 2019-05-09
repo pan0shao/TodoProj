@@ -1,0 +1,7 @@
+Todo/.idea/
+Todo/__pycache__/
+Todo/app/__pycache__/
+wtftest/.idea/
+wtftest/__pycache__/
+wtftest/app/__pycache__/
+wtftest/config.py
