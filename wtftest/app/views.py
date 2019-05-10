@@ -10,10 +10,10 @@ def index():
 
 @app.route('/wtf',methods=['POST','GET'] )
 def tform():
-    tforms = RegisterationForm()
-    form = request.form
-    unm = form['username']
-    if unm == 'a':
+    tforms = RegisterationForm( request.form ):
+    message = ''
+    if request.method == 'POST':
+        tforms.username
         message = "success !!"
     return render_template( "index.html" , forms=tforms, messages=message )
 

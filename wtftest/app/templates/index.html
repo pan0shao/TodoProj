@@ -8,11 +8,13 @@
     <form action="/wtf" method="post">
         {{ forms.csrf_token}}
         <div>
-            {{ forms.username.label }}: {{ forms.username }} {{ forms.submit }}
+            {{ forms.username.label }}: {{ forms.username }}
+            {{ forms.email.label }}: {{ forms.email}}
+            {{ forms.accept_rules.label }}: {{ forms.accept_rules}}
+            {{ forms.submit }}
             {{ messages }}
         </div>
     </form>
-
 
 </body>
 </html>
